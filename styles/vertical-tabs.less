@@ -1,0 +1,101 @@
+// The ui-variables file is provided by base themes provided by Atom.
+//
+// See https://github.com/atom/atom-dark-ui/blob/master/styles/ui-variables.less
+// for a full listing of what's available.
+@import "ui-variables";
+
+/**
+ * Vertical Tab Bar
+ * Based on https://gist.github.com/jasesmith/114da4e5310eda6238f0
+ */
+atom-pane.vertical-tabs {
+  -webkit-flex-direction: row;
+  -webkit-flex-wrap: wrap;
+
+  // Tab Pane's title
+  &:before {
+    content: 'Open Files';
+    color: #787878;
+    padding: 5px 10px;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .tab-bar {
+    height: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-flex-direction: column;
+    padding: 0;
+    margin-top: 26px;
+    width: 175px;
+    box-shadow: none;
+    &:after {
+      display: none;
+    }
+    .placeholder {
+      position: relative;
+      height: 1px;
+      width: auto;
+      margin: 0;
+      box-shadow: none;
+      &:after {
+        display: none;
+      }
+    }
+    .tab {
+      max-width: none;
+      -webkit-flex: 0 0 auto;
+      margin: 0;
+      top: 0;
+      padding: 0;
+      border: none;
+      height: 30px;
+
+      &:before,
+      &:after {
+        display: none;
+      }
+      &.active {
+        -webkit-flex: 0 0 auto;
+        width: auto;
+        background: none;
+      }
+      .title {
+        text-align: left;
+        height: inherit;
+
+        &:not(.icon):before {
+          min-width: 16px;
+          min-height: 16px;
+          font-size: medium;
+          font-family: 'Octicons Regular';
+          content: '\f011';
+          -webkit-font-smoothing: antialiased;
+          margin-right: 5px;
+        }
+      }
+      .close-icon {
+        right: 0;
+        vertical-align: middle;
+        line-height: 250%;
+      }
+      &.modified:not(:hover) {
+        .close-icon {
+          right: 0;
+        }
+      }
+    }
+  }
+}
+
+
+/** one-dark-ui **/
+atom-pane.vertical-tabs {
+  .tab {
+    border-image: none !important;
+    border: none !important;
+  }
+}
